@@ -128,3 +128,11 @@ function updateElementDisplay() {
 // List files on page load
 window.onload = listFiles;
 listenToIsLock();
+
+document.addEventListener('contextmenu', event => {
+    event.preventDefault();
+});
+
+document.onkeydown = function (e) {
+  return false;
+}
