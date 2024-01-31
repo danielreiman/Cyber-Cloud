@@ -1,0 +1,109 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #ccd5ae;
+  color: #212529;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  color: #283618;
+  margin-bottom: 40px;
+  font-size: 2em;
+}
+
+input[type=file] {
+  width: 300px;
+  height: 45px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+input[type=file]::file-selector-button {
+  height: 45px;
+  background-color: #e9edc9;
+  color: #000;
+  border: 0px;
+  border-radius: 10px;
+  border-right: 1px solid #e9edc9;
+  padding: 10px 15px;
+  margin-right: 20px;
+  transition: .5s;
+}
+
+input[type=file]::file-selector-button:hover {
+  width: 300px;
+  height: 45px;
+  background-color: #e9edc9;
+  border: 0px;
+  border-right: 1px solid #e5e5e5;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+}
+
+.download-btn {
+  margin: 0 10px;
+  text-decoration: none;
+  border: none;
+}
+
+.file-delete-btn {
+  margin: 0 10px;
+	color: red;
+  background: none;
+	border: none;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.files-section-title{
+  width: 80%;
+  margin-top: 60px;
+  opacity: 75%;
+}
+
+#fileList {
+  width: 80%;
+  padding: 15px;
+  overflow-y: auto;
+}
+
+#fileList div {
+  /* border-bottom: 1px solid #e9ecef; */
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#fileList div:hover {
+  background-color: #e9edc9;
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+
+.fileList div strong {
+  color: #283618;
+  font-weight: bold;
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.upload-btn {
+  font-size: 20px;
+  width: 300px;
+  height: 45px;
+  background-color: #283618;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
