@@ -133,3 +133,8 @@ footer p {
   margin-top: 150px;
   opacity: 70%;
 }
+@media (max-width: 952px) {
+  body {
+    font-size: smaller;
+  }
+}
