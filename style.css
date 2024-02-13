@@ -73,6 +73,7 @@ input[type=file]::file-selector-button:hover {
 .files-section-title{
   width: 80%;
   margin-top: 60px;
+  color: #212529;
   opacity: 75%;
 }
 
