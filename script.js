@@ -156,8 +156,8 @@ function updateElementDisplay() {
     element.style.display = isLock ? 'none' : 'block';
   });
 
-  title.style.width = isLock ? "81%" : "100%";
-  title.style.textAlign = isLock ? "left" : "center";
+  // title.style.width = isLock ? "81%" : "100%";
+  // title.style.textAlign = isLock ? "left" : "center";
 }
 
 window.onload = listFiles;

@@ -6,15 +6,27 @@
     <link rel="icon" href="logo.png">
 </head>
 <body>
-  <h1>Cyber Cloud</h1>
+  <div class="uploadSection">
+    <h1>Cyber Cloud</h1>
     <input type="file" id="fileInput">
     <button onClick="uploadFile()" class="upload-btn" id="upload-btn">Upload</button>
-    <h4 class="files-section-title">Files</h4>
-    <div id="fileList"></div>
+  </div>
+  <h4 class="files-section-title">Files</h4>
+  <div id="fileList"></div>
 
-    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>    
-    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
-    <script src="script.js"></script>
+  <strong class="links">
+    Links: 
+    <a href="https://data.cyber.org.il/assembly/1450-1-00.pdf" target="_blank">Assembly Presentation</a> | 
+    <a href="https://data.cyber.org.il/assembly/assembly_book.pdf" target="_blank">Assembly Book</a> 
+  </strong>
+     
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>    
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+  <script src="script.js"></script>
 </body>
+
+<footer>
+  <p>Designed and Developed by Daniel Reiman</p>
+</footer>
 </html>
