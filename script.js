@@ -170,3 +170,8 @@ document.addEventListener('contextmenu', event => {
 document.onkeydown = function (e) {
   return false;
 }
+
+function openAlert() {
+  const message = "None of your business!";
+  alert(message);
+}
