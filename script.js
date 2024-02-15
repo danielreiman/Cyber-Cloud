@@ -80,31 +80,57 @@ function listFiles() {
 
   var filesRef = storage.ref('files');
   filesRef.listAll().then(function (result) {
+    var filesMetadata = [];
+
+    // Use a counter to track when all metadata has been fetched
+    var filesProcessed = 0;
+
     result.items.forEach(function (fileRef) {
       fileRef.getDownloadURL().then(function (url) {
         fileRef.getMetadata().then((metadata) => {
-          var date = new Date(metadata.timeCreated);
-          var formattedDate = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate().toString().padStart(2, '0')}`;
-          var formattedTime = `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
-          fileList.innerHTML += `
-            <div>
-              <p><strong>${formattedDate}</strong> - ${fileRef.name}</p>
-              <div class="buttons">
-                <a href="javascript:void(0)" onclick="downloadFile('${url}', '${fileRef.name}')" class="download-btn">Download</a>
-                <button class="file-delete-btn" onclick="deleteFile('${fileRef.name}')">Delete</button>
-              </div>
-            </div>
-            <hr>
-          `;
+          filesMetadata.push({
+            url: url,
+            name: fileRef.name,
+            date: metadata.timeCreated
+          });
+
+          filesProcessed++;
+          if (filesProcessed === result.items.length) {
+            // All files have been processed, now sort and display
+            displaySortedFiles(filesMetadata);
+          }
         }).catch((error) => {
           console.error('Error fetching metadata:', error);
+          filesProcessed++;
         });
       });
     });
   });
-  updateElementDisplay();
-}
 
+  function displaySortedFiles(filesMetadata) {
+    // Sort files by date
+    filesMetadata.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    // Append files to DOM in sorted order
+    filesMetadata.forEach(({url, name, date}) => {
+      var formattedDate = new Date(date).toISOString().split('T')[0]; // YYYY-MM-DD format
+      var formattedTime = new Date(date).toTimeString().split(' ')[0]; // HH:MM:SS format
+
+      fileList.innerHTML += `
+        <div>
+          <p><strong>${formattedDate}</strong> - ${name}</p>
+          <div class="buttons">
+            <a href="javascript:void(0)" onclick="downloadFile('${url}', '${name}')" class="download-btn">Download</a>
+            <button class="file-delete-btn" onclick="deleteFile('${name}')">Delete</button>
+          </div>
+        </div>
+        <hr>
+      `;
+    });
+
+    updateElementDisplay();
+  }
+}
 
 function downloadFile(url, fileName) {
   if (isLock == false) {
