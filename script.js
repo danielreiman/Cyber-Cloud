@@ -177,10 +177,11 @@ function listenToIsLock() {
 function updateElementDisplay() {
   var elements = document.querySelectorAll(".upload-btn, #fileInput");
   var title = document.querySelectorAll("h1")[0];
-
+  var adminMessage = document.querySelectorAll(".admin-message")[0];
   elements.forEach(element => {
     element.style.display = isLock ? 'none' : 'block';
   });
+  adminMessage.style.display = isLock ? "flex" : "none";
 
   // title.style.width = isLock ? "81%" : "100%";
   // title.style.textAlign = isLock ? "left" : "center";
