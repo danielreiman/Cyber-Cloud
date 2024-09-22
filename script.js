@@ -23,10 +23,10 @@ async function uploadFile() {
 
       let index = filesCount + 1;
 
-      const fileExtension = file.name.split('.').pop();
-      const newFileName = index < 10 ? `CF0${index}.${fileExtension}` : `CF${index}.${fileExtension}`;
+      // const fileExtension = file.name.split('.').pop();
+      // const newFileName = index < 10 ? `CF0${index}.${fileExtension}` : `CF${index}.${fileExtension}`;
 
-      var newFileRef = storageRef.child(newFileName);
+      var newFileRef = storageRef.child(file.name);
 
       console.log('Uploading file with name:', newFileName);
       await newFileRef.put(file);
